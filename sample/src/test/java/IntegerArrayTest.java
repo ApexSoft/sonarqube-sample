@@ -1,7 +1,5 @@
 import org.junit.Before;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.Random;
 
@@ -9,8 +7,6 @@ import java.util.Random;
  * Created by Administrator on 2014-07-08.
  */
 public class IntegerArrayTest {
-
-    private final static Logger log = LoggerFactory.getLogger(IntegerArrayTest.class);
 
     private int[] numbers;
     private final static int SIZE = 9;
@@ -30,7 +26,7 @@ public class IntegerArrayTest {
         IntegerArray sorter = new IntegerArray(numbers);
         sorter.sort(IntegerArray.BUBBLE_SORT);
         if (!validate(numbers)) {
-            log.error("Should not happen");
+            printResult(numbers);
         }
     }
 

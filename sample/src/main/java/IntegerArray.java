@@ -4,8 +4,8 @@
 public class IntegerArray {
 
     public final static int BUBBLE_SORT = 1;
-
     public final static int QUICK_SORT = 2;
+    public final static int MERGE_SORT = 3;
 
     private int[] numbers;
     private int size;
@@ -23,6 +23,8 @@ public class IntegerArray {
             case QUICK_SORT:
                 quickSort(0, size - 1);
                 break;
+            case MERGE_SORT:
+                mergeSort();
         }
     }
 
@@ -60,6 +62,10 @@ public class IntegerArray {
         if (i < high) {
             quickSort(i, high);
         }
+    }
+
+    private void mergeSort() {
+
     }
 
     private void exchange(int i, int j) {
