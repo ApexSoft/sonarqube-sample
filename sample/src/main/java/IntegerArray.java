@@ -29,10 +29,24 @@ public class IntegerArray {
     }
 
     private void bubbleSort() {
-        for (int i = 1; i < size; i++) {
-            for (int j = 0; j < size - i; j++) {
-                if (numbers[j] > numbers[j + 1]) {
-                    exchange(j, j + 1);
+        int low = 0;
+        int high = size - 1;
+
+        while (low < high) {
+            int lowest  = low;
+            int highest = high;
+            low = size;
+            for (int i = lowest; i < highest; i++) {
+                if (numbers[i] > numbers[i + 1]) {
+                    exchange(i, i + 1);
+                    if (i < low) {
+                        low = i-1;
+                        if (low < 0) {
+                            low = 0;
+                        }
+                    } else if (i > high) {
+                        high = i + 1;
+                    }
                 }
             }
         }
@@ -65,7 +79,7 @@ public class IntegerArray {
     }
 
     private void mergeSort() {
-
+        
     }
 
     private void exchange(int i, int j) {
