@@ -8,6 +8,10 @@
     <artifactId>sonar-junit</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <scm>
+        <connection>scm:git:git@github.com:ApexSoft/sonarqube-sample.git</connection>
+        <developerConnection>scm:git:git@github.com:ApexSoft/sonarqube-sample.git</developerConnection>
+    </scm>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -15,9 +19,22 @@
             <version>4.8.2</version>
         </dependency>
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.2</version>
+            <groupId>org.apache.maven.scm</groupId>
+            <artifactId>maven-scm-api</artifactId>
+            <version>1.9</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.scm</groupId>
+            <artifactId>maven-scm-provider-gitexe</artifactId>
+            <version>1.9</version>
         </dependency>
     </dependencies>
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </reporting>
 </project>
