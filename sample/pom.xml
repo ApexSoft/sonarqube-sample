@@ -11,6 +11,8 @@
     <scm>
         <connection>scm:git:git@github.com:ApexSoft/sonarqube-sample.git</connection>
         <developerConnection>scm:git:git@github.com:ApexSoft/sonarqube-sample.git</developerConnection>
+        <url>https://github.com/ApexSoft/sonarqube-sample</url>
+        <tag>HEAD</tag>
     </scm>
     <dependencies>
         <dependency>
@@ -29,12 +31,4 @@
             <version>1.9</version>
         </dependency>
     </dependencies>
-    <reporting>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-pmd-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </reporting>
 </project>
