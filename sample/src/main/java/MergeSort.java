@@ -5,61 +5,57 @@ import java.util.Arrays;
  */
 public class MergeSort implements SortAlgorithm {
 
-    private int[] numbers;
-    private int[] helper;
-    private int size;
-
-    public MergeSort() {
-    }
-
+    /**
+     *
+     * @param numbers
+     */
     @Override
-    public void sort(int[] values) {
-        this.numbers = new int[values.length];
-        this.size = numbers.length;
-        this.helper = new int[size];
-        mergesort(0, size - 1);
+    public void sort(int...numbers) {
+        mergesort(0, numbers.length - 1, numbers);
     }
 
-    private void mergesort(int low, int high) {
+    private void mergesort(int low, int high, int...numbers) {
         // check if low is smaller then high, if not then the array is sorted
         if (low < high) {
             // Get the index of the element which is in the middle
             int middle = low + (high - low) / 2;
             // Sort the left side of the array
-            mergesort(low, middle);
+            mergesort(low, middle, numbers);
             // Sort the right side of the array
-            mergesort(middle + 1, high);
+            mergesort(middle + 1, high, numbers);
             // Combine them both
-            merge(low, middle, high);
+            merge(numbers, low, middle, high);
         }
     }
 
-    private void merge(int low, int middle, int high) {
+    /**
+     *
+     * @param numbers
+     * @param low
+     * @param middle
+     * @param high
+     */
+    private void merge(int[] numbers, int low, int middle, int high) {
         // Copy both parts into the helper array
-        for (int i = low; i <= high; i++) {
-            helper[i] = numbers[i];
-        }
+        int[] helper = new int[numbers.length];
+        System.arraycopy(numbers, 0, helper, 0, numbers.length);
 
-        int i = low;
-        int j = middle + 1;
-        int k = low;
+        int left_side = low;
+        int right_side= middle + 1;
+        int pivot = low;
         // Copy the smallest values from either the left or the right side back
         // to the original array
-        while (i <= middle && j <= high) {
-            if (helper[i] <= helper[j]) {
-                numbers[k] = helper[i];
-                i++;
+        while (left_side <= middle && right_side <= high) {
+            if (helper[left_side] <= helper[right_side]) {
+                numbers[pivot] = helper[left_side];
+                left_side++;
             } else {
-                numbers[k] = helper[j];
-                j++;
+                numbers[pivot] = helper[right_side];
+                right_side++;
             }
-            k++;
+            pivot++;
         }
         // Copy the rest of the left side of the array into the target array
-        while (i <= middle) {
-            numbers[k] = helper[i];
-            k++;
-            i++;
-        }
+        System.arraycopy(numbers, pivot, helper, left_side, middle + 1 - left_side);
     }
 }

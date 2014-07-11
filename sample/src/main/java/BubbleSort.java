@@ -5,15 +5,12 @@ import java.util.Arrays;
  */
 public class BubbleSort implements SortAlgorithm {
 
-    private int[] numbers;
-
-    public BubbleSort() {
-    }
-
+    /**
+     * bubble sort
+     * @param numbers
+     */
     @Override
-    public void sort(int[] values) {
-        this.numbers = values;
-
+    public void sort(int...numbers) {
         int size = numbers.length;
         int low = 0;
         int high = size - 1;
@@ -24,7 +21,7 @@ public class BubbleSort implements SortAlgorithm {
             low = size;
             for (int i = lowest; i < highest; i++) {
                 if (numbers[i] > numbers[i + 1]) {
-                    exchange(i, i + 1);
+                    exchange(i, i + 1, numbers);
                     if (i < low) {
                         low = i-1;
                         if (low < 0) {
@@ -38,9 +35,15 @@ public class BubbleSort implements SortAlgorithm {
         }
     }
 
-    private void exchange(int i, int j) {
-        numbers[i] = numbers[i] ^ numbers[j];
-        numbers[j] = numbers[i] ^ numbers[j];
-        numbers[i] = numbers[i] ^ numbers[j];
+    /**
+     * exchange numbers[i] and numbers[j]
+     * @param numbers
+     * @param first
+     * @param second
+     */
+    private void exchange(int first, int second, int...numbers) {
+        numbers[first] = numbers[first] ^ numbers[second];
+        numbers[second] = numbers[first] ^ numbers[second];
+        numbers[first] = numbers[first] ^ numbers[second];
     }
 }

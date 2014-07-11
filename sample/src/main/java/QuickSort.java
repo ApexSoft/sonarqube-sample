@@ -3,49 +3,57 @@
  */
 public class QuickSort implements SortAlgorithm {
 
-    private int[] numbers;
-    private int size;
-
-    public QuickSort() {
-    }
-
+    /**
+     *
+     * @param numbers
+     */
     @Override
-    public void sort(int[] values) {
-        this.numbers = values;
-
-        quickSort(0, numbers.length - 1);
+    public void sort(int...numbers) {
+        quickSort(0, numbers.length - 1, numbers);
     }
 
-    private void quickSort(int low, int high) {
-        int i = low, j = high;
+    /**
+     *
+     * @param numbers
+     * @param low
+     * @param high
+     */
+    private void quickSort(int low, int high, int...numbers) {
+        int low_temp= low, high_temp= high;
         int pivot = numbers[low + (high - low) / 2];
 
-        while (i <= j) {
-            while (numbers[i] < pivot) {
-                i++;
+        while (low_temp <= high_temp) {
+            while (numbers[low_temp] < pivot) {
+                low_temp++;
             }
-            while (numbers[j] > pivot) {
-                j--;
+            while (numbers[high_temp] > pivot) {
+                high_temp--;
             }
-            if (i <= j) {
-                exchange(i, j);
-                i++;
-                j--;
+            if (low_temp <= high_temp) {
+                exchange(numbers, low_temp, high_temp);
+                low_temp++;
+                high_temp--;
             }
         }
 
-        if (low < j) {
-            quickSort(low, j);
+        if (low < high_temp) {
+            quickSort(low, high_temp, numbers);
         }
-        if (i < high) {
-            quickSort(i, high);
+        if (low_temp < high) {
+            quickSort(low_temp, high, numbers);
         }
     }
 
-    private void exchange(int i, int j) {
-        numbers[i] = numbers[i] ^ numbers[j];
-        numbers[j] = numbers[i] ^ numbers[j];
-        numbers[i] = numbers[i] ^ numbers[j];
+    /**
+     *
+     * @param numbers
+     * @param first
+     * @param second
+     */
+    private void exchange(int[] numbers, int first, int second) {
+        numbers[first] = numbers[first] ^ numbers[second];
+        numbers[second] = numbers[first] ^ numbers[second];
+        numbers[first] = numbers[first] ^ numbers[second];
     }
 
 }

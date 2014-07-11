@@ -13,7 +13,7 @@ public class SortAlgorithmTest {
     private final static int MAX = 100;
 
     @Before
-    public void setup() throws Exception {
+    public void setUp() throws Exception {
         numbers = new int[SIZE];
         Random generator = new Random();
         for (int i = 0; i < numbers.length; i++) {
