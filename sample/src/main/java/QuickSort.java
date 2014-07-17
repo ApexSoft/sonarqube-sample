@@ -7,7 +7,6 @@ public class QuickSort implements SortAlgorithm {
      *
      * @param numbers
      */
-    @Override
     public void sort(int...numbers) {
         quickSort(0, numbers.length - 1, numbers);
     }

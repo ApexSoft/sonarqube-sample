@@ -23,17 +23,50 @@ public class IntegerArrayTest {
 
     @Test
     public void testBubbleSort() {
-        IntegerArray sorter = new IntegerArray(numbers);
-        sorter.sort(IntegerArray.BUBBLE_SORT);
-        if (!validate(numbers)) {
-            printResult(numbers);
-        }
+		IntegerArray array = new IntegerArray(numbers);
+		System.out.println("**Bubble Sort**");
+		System.out.print("before: ");
+		printResult(array.getNumbers());
+        array.setSortAlgorithm(new BubbleSort());
+        array.sort();
+		if (validate(numbers)) {
+			System.out.print("sorted: ");
+			printResult(array.getNumbers());
+		} else {
+			System.out.println("sort failed");
+		}
     }
 
     @Test
     public void testQuickSort() {
-        IntegerArray sorter = new IntegerArray(numbers);
-        sorter.sort(IntegerArray.QUICK_SORT);
+		IntegerArray array = new IntegerArray(numbers);
+		System.out.println("**Quick Sort**");
+		System.out.print("before: ");
+		printResult(array.getNumbers());
+        array.setSortAlgorithm(new QuickSort());
+        array.sort();
+		if (validate(numbers)) {
+			System.out.print("sorted: ");
+			printResult(array.getNumbers());
+		} else {
+			System.out.println("sort failed");
+		}
+    }
+    
+    @Test
+    public void testMergeSort() {
+		IntegerArray array = new IntegerArray(numbers);
+		System.out.println("**Merge Sort**");
+		System.out.print("before: ");
+		printResult(array.getNumbers());
+        array.setSortAlgorithm(new MergeSort());
+        array.sort();
+		if (validate(numbers)) {
+			System.out.print("sorted: ");
+			printResult(array.getNumbers());
+		} else {
+			System.out.println("sort failed");
+		}
     }
 
     private boolean validate(int[] numbers) {
@@ -47,7 +80,7 @@ public class IntegerArrayTest {
 
     private void printResult(int[] numbers) {
         for (int i = 0; i < numbers.length; i++) {
-            System.out.print(numbers[i]);
+            System.out.print(numbers[i] + " ");
         }
         System.out.println();
     }

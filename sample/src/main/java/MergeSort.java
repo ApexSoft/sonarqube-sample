@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 /**
  * Created by Administrator on 2014-07-10.
  */
@@ -9,7 +7,6 @@ public class MergeSort implements SortAlgorithm {
      *
      * @param numbers
      */
-    @Override
     public void sort(int...numbers) {
         mergesort(0, numbers.length - 1, numbers);
     }
