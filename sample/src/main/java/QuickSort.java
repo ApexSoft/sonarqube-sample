@@ -50,6 +50,9 @@ public class QuickSort implements SortAlgorithm {
      * @param second
      */
     private void exchange(int[] numbers, int first, int second) {
+    	if (first == second) {
+    		return;
+    	}
         numbers[first] = numbers[first] ^ numbers[second];
         numbers[second] = numbers[first] ^ numbers[second];
         numbers[first] = numbers[first] ^ numbers[second];

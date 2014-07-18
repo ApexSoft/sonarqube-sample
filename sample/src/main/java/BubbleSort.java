@@ -39,6 +39,9 @@ public class BubbleSort implements SortAlgorithm {
      * @param second
      */
     private void exchange(int first, int second, int...numbers) {
+    	if (first == second) {
+    		return;
+    	}
         numbers[first] = numbers[first] ^ numbers[second];
         numbers[second] = numbers[first] ^ numbers[second];
         numbers[first] = numbers[first] ^ numbers[second];

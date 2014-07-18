@@ -3,29 +3,45 @@
  */
 public class IntegerArray {
 
-	public final static int BUBBLE_SORT = 1;
-	public final static int QUICK_SORT = 2;
-	public final static int MERGE_SORT = 3;
-
+	/**
+	 * integer array
+	 */
 	private int[] numbers;
 
+	/**
+	 * sort algorithm
+	 */
 	private SortAlgorithm algorithm;
 
+	/**
+	 * Construct
+	 * @param values
+	 */
 	public IntegerArray(int...values) {
 		this.numbers = new int[values.length];
 		System.arraycopy(values, 0, numbers, 0, numbers.length);
 	}
 
+	/**
+	 * @param algorithm
+	 */
 	public void setSortAlgorithm(SortAlgorithm algorithm) {
 		this.algorithm = algorithm;
 	}
 
+	/**
+	 * starting sort
+	 */
 	public void sort() {
 		if (algorithm != null) {
 			algorithm.sort(numbers);
 		}
 	}
 	
+	/**
+	 * return result
+	 * @return
+	 */
 	public int[] getNumbers() {
 		return numbers;
 	}

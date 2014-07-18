@@ -29,7 +29,7 @@ public class IntegerArrayTest {
 		printResult(array.getNumbers());
         array.setSortAlgorithm(new BubbleSort());
         array.sort();
-		if (validate(numbers)) {
+		if (validate(array.getNumbers())) {
 			System.out.print("sorted: ");
 			printResult(array.getNumbers());
 		} else {
@@ -45,7 +45,7 @@ public class IntegerArrayTest {
 		printResult(array.getNumbers());
         array.setSortAlgorithm(new QuickSort());
         array.sort();
-		if (validate(numbers)) {
+		if (validate(array.getNumbers())) {
 			System.out.print("sorted: ");
 			printResult(array.getNumbers());
 		} else {
@@ -61,7 +61,7 @@ public class IntegerArrayTest {
 		printResult(array.getNumbers());
         array.setSortAlgorithm(new MergeSort());
         array.sort();
-		if (validate(numbers)) {
+		if (validate(array.getNumbers())) {
 			System.out.print("sorted: ");
 			printResult(array.getNumbers());
 		} else {
